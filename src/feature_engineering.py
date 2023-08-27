@@ -8,7 +8,7 @@ import sys
 
 from preprocess import base_data
 # from src.preprocess import base_data
-sys.path.append('/home/nori/otto2')
+sys.path.append('../')
 from utils import Feature, generate_features, create_memo
 
 # 生成された特徴量を保存するパス

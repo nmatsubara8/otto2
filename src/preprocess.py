@@ -20,9 +20,7 @@ def preprocess(train, test):
     test["train"] = False
     test["target"] = None
 
-    data = pd.concat([
-        train, test
-    ]).reset_index(drop=True)
+    data = pd.concat([train, test]).reset_index(drop=True)
     return data
 
 
