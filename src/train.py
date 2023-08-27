@@ -37,7 +37,7 @@ def run(cfg):
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
-        import lightgbm as lgb
+        import LightGBM.lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
     data = [pd.read_pickle(cwd +"/"+ f"/features/{f}.pkl") for f in cfg.features]
