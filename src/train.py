@@ -108,7 +108,9 @@ def run(cfg):
 
 
 # @git_commits(rand)
-@hydra.main(config_name="../config/config.yaml")
+#@hydra.main(config_name="../config/config.yaml")
+@hydra.main(config_path="../config", config_name="config")
+
 def main(cfg):
     run(cfg)
 
