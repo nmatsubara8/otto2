@@ -183,7 +183,7 @@ def add_datasets(rand):
     """
     metadata = {
         "title": f"{rand}",
-        "id": f"chizuchizu/{rand}",
+        "id": f"nmatsubara8/{rand}",
         "licenses": [
             {
                 "name": "CC0-1.0"
@@ -205,7 +205,7 @@ def add_notebooks(rand, cwd, cfg):
     :return: None
     """
     meta = {
-        "id": f"chizuchizu/{rand} inference",
+        "id": f"nmatsubara8/{rand} inference",
         "title": f"{rand} inference",
         "language": "python",
         "kernel_type": "script",
@@ -213,7 +213,7 @@ def add_notebooks(rand, cwd, cfg):
         "is_private": "true",
         "enable_gpu": cfg.kaggle.enable_gpu,
         "dataset_sources": [
-                               f"chizuchizu/{rand}",
+                               f"nmatsubara8/{rand}",
                            ] + cfg.kaggle.data_sources,
         "competition_sources": cfg.kaggle.competitions,
     }
