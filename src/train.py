@@ -14,7 +14,7 @@ import mlflow
 import mlflow.lightgbm
 
 import sys
-sys.path.append('/home/nori/otto2')
+sys.path.append('../')
 
 from utils import git_commits
 
@@ -33,14 +33,14 @@ def save_log(score_dict):
 @git_commits(rand)
 def run(cfg):
     cwd = Path(hydra.utils.get_original_cwd())
-    print('CWD:::',cwd)
+    #print('CWD:::',cwd)
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
         import lightgbm as lgb
 
-    #data = [pd.read_pickle(cwd / f"../features/{f}.pkl") for f in cfg.features]
-    data = [pd.read_pickle(cwd / f"/features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(f"../features/{f}.pkl") for f in cfg.features]
+    #data = [pd.read_pickle(cwd / f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns="train")
