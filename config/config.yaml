@@ -14,11 +14,11 @@ parameters:
   max_depth: 8
   learning_rate: .02
   metric: "multi_logloss"
-  num_leaves: 20
+  num_leaves: 31
   verbose_eval: -1
 
 # trainingに使用する特徴量
 features: [
-  #"base_data",
+  "base_data",
   "pca",
 ]
