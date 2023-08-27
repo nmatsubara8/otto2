@@ -32,8 +32,8 @@ def save_log(score_dict):
 
 @git_commits(rand)
 def run(cfg):
-    cwd = Path(hydra.utils.get_original_cwd())
-    #print('CWD:::',cwd)
+    cwd = Path('../'+hydra.utils.get_original_cwd())
+    print('CWD:::',cwd)
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
