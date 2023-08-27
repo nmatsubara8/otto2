@@ -4,7 +4,7 @@ base:
   seed: 1234
   n_folds: 4
   # optunaを使うかどうか
-  optuna: true
+  optuna: false
   num_boost_round: 1500
 
 # LightGBMのパラメータ
@@ -19,6 +19,6 @@ parameters:
 
 # trainingに使用する特徴量
 features: [
-  "base_data",
+  #"base_data",
   "pca",
 ]
