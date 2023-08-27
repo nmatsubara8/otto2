@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/nori/otto2')
+
 from utils import Feature, generate_features, create_memo
 from src.preprocess import base_data
 

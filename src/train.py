@@ -13,6 +13,9 @@ from pathlib import Path
 import mlflow
 import mlflow.lightgbm
 
+import sys
+sys.path.append('/home/nori/otto2')
+
 from utils import git_commits
 
 rand = np.random.randint(0, 1000000)
