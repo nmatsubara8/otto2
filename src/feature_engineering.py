@@ -1,15 +1,18 @@
-import sys
-sys.path.append('/home/nori/otto2')
 
-from utils import Feature, generate_features, create_memo
-from src.preprocess import base_data
-
-import pandas as pd
-import hydra
 from sklearn.decomposition import PCA
+import hydra
+import pandas as pd
+
+import sys
+
+
+from preprocess import base_data
+# from src.preprocess import base_data
+sys.path.append('/home/nori/otto2')
+from utils import Feature, generate_features, create_memo
 
 # 生成された特徴量を保存するパス
-Feature.dir = "features"
+Feature.dir = "/home/nori/otto2/features"
 # trainとtestを結合して基本的な前処理を行ったデータを呼ぶ
 data = base_data()
 
@@ -41,10 +44,12 @@ class Pca(Feature):
         create_memo("pca", "pcaかけただけ")
 
 
-@hydra.main(config_name="../config/config.yaml")
+#@hydra.main(config_name="../config/config.yaml")
+@hydra.main(config_path="../config", config_name="config")
 def run(cfg):
     # overwriteがfalseなら上書きはされない
     # globals()からこのファイルの中にある特徴量クラスが選別されてそれぞれ実行される
+
     generate_features(globals(), cfg.base.overwrite)
 
 

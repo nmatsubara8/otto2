@@ -1,6 +1,6 @@
 hydra-core
-shap==0.37.0
-mlflow==1.12.1
+shap
+mlflow
 optuna
 lightgbm
 pandas
