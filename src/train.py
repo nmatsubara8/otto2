@@ -33,7 +33,7 @@ def save_log(score_dict):
 @git_commits(rand)
 def run(cfg):
     cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    print('CWD:::',cwd)
+    #print('CWD:::',cwd)
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
@@ -43,7 +43,7 @@ def run(cfg):
     data = [pd.read_pickle(cwd +"/"+ f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
-    train = data[data["train"]].drop(columns="train")
+    train = data[data["train"]].drop(columns=["train"])
     test = data[~data["train"]].drop(columns=["train", "target"])
     train = train.drop(columns="target")
 
@@ -99,11 +99,11 @@ def run(cfg):
                 }
             )
     cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    print('CWDss:::',cwd)
+    #print('CWDss:::',cwd)
 
     ss = pd.read_csv(cwd +"/data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
-    file_path = cwd +"/"+ f"/outputs/{rand}.csv"
+    file_path = cwd + f"/outputs/{rand}.csv"
     ss.to_csv(file_path, index=False)
 
     mlflow.log_artifact(file_path)
