@@ -12,7 +12,7 @@ sys.path.append('/home/nori/otto2')
 from utils import Feature, generate_features, create_memo
 
 # 生成された特徴量を保存するパス
-Feature.dir = "/home/nori/otto2/features"
+Feature.dir = "features"
 # trainとtestを結合して基本的な前処理を行ったデータを呼ぶ
 data = base_data()
 
