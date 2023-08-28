@@ -4,7 +4,7 @@ base:
   seed: 1234
   n_folds: 4
   # optunaを使うかどうか
-  optuna: false
+  optuna: true
   num_boost_round: 1500
 
 # LightGBMのパラメータ
