@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 import pandas as pd
-import shap
+#import shap
 import hydra
 import gc
 import os
@@ -14,7 +14,8 @@ import mlflow
 import mlflow.lightgbm
 
 import sys
-sys.path.append('../')
+sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+sys.path.append('/home/nori/anaconda3/envs/py38/bin')
 
 from utils import git_commits
 
@@ -33,14 +34,14 @@ def save_log(score_dict):
 @git_commits(rand)
 def run(cfg):
     cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    #print('CWD:::',cwd)
+
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
-        import LightGBM.lightgbm as lgb
+        import LightGBM.windows.lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
-    data = [pd.read_pickle(cwd +"/"+ f"/features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(cwd + f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])

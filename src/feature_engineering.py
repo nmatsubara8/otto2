@@ -8,7 +8,8 @@ import sys
 
 from preprocess import base_data
 # from src.preprocess import base_data
-sys.path.append('../')
+sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+
 from utils import Feature, generate_features, create_memo
 
 # 生成された特徴量を保存するパス
