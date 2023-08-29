@@ -3,18 +3,21 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 import pandas as pd
-#import shap
+import shap
 import hydra
 import gc
 import os
 
 from pathlib import Path
+import lightgbm
 
 import mlflow
 import mlflow.lightgbm
 
 import sys
 sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
+sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
 
 from utils import git_commits
 
@@ -32,13 +35,11 @@ def save_log(score_dict):
 
 @git_commits(rand)
 def run(cfg):
-    import sys
-    cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
+   #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
+    cwd = Path(hydra.utils.get_original_cwd())
     if cfg.base.optuna:
-        sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
         import optuna.integration.lightgbm as lgb
     else:
-        sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
         import lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
@@ -100,7 +101,7 @@ def run(cfg):
                     "score": score
                 }
             )
-    cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
+    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     #print('CWDss:::',cwd)
 
     ss = pd.read_csv(cwd +"/data/sampleSubmission.csv")
