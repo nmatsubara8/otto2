@@ -64,7 +64,7 @@ def run(cfg):
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
     print("file://" + hydra.utils.get_original_cwd() + "/mlruns")
 
-    mlflow.set_tracking_uri('file:/' + hydra.utils.get_original_cwd() + '/mlruns')
+    mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
     use_cols = pd.Series(train.columns)
     use_cols.to_csv("features.csv", index=False, header=False)
