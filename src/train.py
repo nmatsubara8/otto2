@@ -37,13 +37,17 @@ def save_log(score_dict):
 def run(cfg):
    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     cwd = Path(hydra.utils.get_original_cwd())
+    #上記はsrcディレクトリー
+
+
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
         import lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
-    data = [pd.read_pickle(str(cwd) + f"/features/{f}.pkl") for f in cfg.features]
+    os.chdir('../')
+    data = [pd.read_pickle(os.getcw()+ f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])
