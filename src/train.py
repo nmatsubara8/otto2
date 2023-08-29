@@ -38,7 +38,7 @@ def run(cfg):
    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     cwd = Path(hydra.utils.get_original_cwd())
     #上記はsrcディレクトリー
-    print("CWD1:",cwd)
+    #print("CWD1:",cwd)
 
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
@@ -62,8 +62,8 @@ def run(cfg):
     score = 0
 
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
-    print("test______file:/" + hydra.utils.get_original_cwd() + "/mlruns")
-    #print("file://mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/mlruns")
+    print("file:///" + hydra.utils.get_original_cwd() + "/mlruns")
+
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
     use_cols = pd.Series(train.columns)
@@ -89,8 +89,8 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                #verbose_eval=500,
-                #early_stopping_rounds=100
+                verbose_eval=500,
+                early_stopping_rounds=100
             )
 
             y_pred = estimator.predict(test)
