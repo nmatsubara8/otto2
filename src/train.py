@@ -33,16 +33,13 @@ def save_log(score_dict):
 
 @git_commits(rand)
 def run(cfg):
-
     import sys
-    sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src')
-    sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
-
     cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-
     if cfg.base.optuna:
+        sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
         import optuna.integration.lightgbm as lgb
     else:
+        sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src')
         import LightGBM.lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
