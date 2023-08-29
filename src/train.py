@@ -38,7 +38,7 @@ def run(cfg):
    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     cwd = Path(hydra.utils.get_original_cwd())
     #上記はsrcディレクトリー
-
+    print("CWD1:",cwd)
 
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
@@ -46,8 +46,8 @@ def run(cfg):
         import lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
-    os.chdir('../')
-    data = [pd.read_pickle(os.getcwd()+ f"/features/{f}.pkl") for f in cfg.features]
+
+    data = [pd.read_pickle(str(cwd)+ f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])
