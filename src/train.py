@@ -107,9 +107,7 @@ def run(cfg):
                 }
             )
     #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    #print('CWDss:::',cwd)
-
-    ss = pd.read_csv(cwd +"/data/sampleSubmission.csv")
+    ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
     file_path = cwd + f"/outputs/{rand}.csv"
     ss.to_csv(file_path, index=False)
