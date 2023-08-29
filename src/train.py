@@ -35,7 +35,7 @@ def save_log(score_dict):
 def run(cfg):
 
     import sys
-    sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+    sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src')
     sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
 
     cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
@@ -43,7 +43,7 @@ def run(cfg):
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
-        import LightGBM.lightgbm as lgb
+        import LightGBM.windows.lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
     data = [pd.read_pickle(cwd + f"/features/{f}.pkl") for f in cfg.features]
