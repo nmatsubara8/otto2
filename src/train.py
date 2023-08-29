@@ -110,7 +110,7 @@ def run(cfg):
     ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
     #file_path = str(cwd.parent) + f"/outputs/{rand}.csv"
-    file_path = str(cwd.parent) + "/outputs/{rand}.csv"
+    file_path = str(cwd.parent) + f"/outputs/{rand}.csv"
     ss.to_csv(file_path, index=False)
 
     mlflow.log_artifact(file_path)
