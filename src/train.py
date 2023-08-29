@@ -15,7 +15,6 @@ import mlflow.lightgbm
 
 import sys
 sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
-sys.path.append('/home/nori/anaconda3/envs/py38/bin')
 
 from utils import git_commits
 
@@ -39,8 +38,8 @@ def run(cfg):
         sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
         import optuna.integration.lightgbm as lgb
     else:
-        sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src')
-        import LightGBM.lightgbm as lgb
+        sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
+        import lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
     data = [pd.read_pickle(cwd + f"/features/{f}.pkl") for f in cfg.features]
