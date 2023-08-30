@@ -18,7 +18,7 @@ parameters:
   bagging_fraction: 0.8
   metric: "multi_logloss"
   num_leaves: 32
-  verbose: -1
+  verbose: 0
   force_row_wise: true
 
 # trainingに使用する特徴量
