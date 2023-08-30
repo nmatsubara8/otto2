@@ -49,7 +49,7 @@ def run(cfg):
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
     print("GT2:",os.getcwd())
-    data = [pd.read_pickle(str(cwd)+ f"/features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(str(cwd.parent)+ f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])
