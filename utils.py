@@ -150,16 +150,17 @@ def git_commits(rand):
     return func_decorator
 
 
-def kaggle_wrapper(rand, cwd, cfg):
-    def func_decorator(my_func):
-        def decorator_wrapper(*args, **kwargs):
-            my_func(*args, **kwargs)
+#def kaggle_wrapper(rand, cwd, cfg):
 
-        add_experiment_name(rand=rand)
-        add_datasets(rand)
-        add_notebooks(rand, cwd, cfg)
+def func_decorator(my_func):
+    def decorator_wrapper(*args, **kwargs):
+        my_func(*args, **kwargs)
 
-        return decorator_wrapper
+    add_experiment_name(rand=rand)
+    add_datasets(rand)
+    add_notebooks(rand, cwd, cfg)
+
+    return decorator_wrapper
 
     return func_decorator
 
