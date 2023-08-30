@@ -4,11 +4,11 @@
 from utils import Feature, generate_features, create_memo
 from src.preprocess import base_data
 # from src.preprocess import base_data
-
+import os
 import pandas as pd
 import hydra
 from sklearn.decomposition import PCA
-
+print("FE1:",os.getcwd())
 # 生成された特徴量を保存するパス
 Feature.dir = "features"
 # trainとtestを結合して基本的な前処理を行ったデータを呼ぶ
