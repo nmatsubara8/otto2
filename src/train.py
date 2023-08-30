@@ -14,10 +14,10 @@ import lightgbm
 import mlflow
 import mlflow.lightgbm
 
-import sys
-sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
-sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
-sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
+#import sys
+#ys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+#sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
+#sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
 
 from utils import git_commits
 
