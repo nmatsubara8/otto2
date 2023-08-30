@@ -93,8 +93,8 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                #early_stopping_rounds=100,
-                #verbose_eval=500,
+                early_stopping_rounds=100,
+                verbose_eval=500,
 
             )
 
@@ -119,7 +119,6 @@ def run(cfg):
 
     print('DD3:',file_path)
     ss.to_csv(file_path, index=False)
-
     mlflow.log_artifact(file_path)
     os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
 
