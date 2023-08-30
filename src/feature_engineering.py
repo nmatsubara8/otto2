@@ -2,7 +2,7 @@
 #ys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
 
 from utils import Feature, generate_features, create_memo
-from src.preprocess import base_data
+from preprocess import base_data
 # from src.preprocess import base_data
 import os
 import pandas as pd
