@@ -62,7 +62,9 @@ def run(cfg):
     score = 0
 
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
-    print("file://" + hydra.utils.get_original_cwd() + "/mlruns")
+    h_path = (str(hydra.utils.get_original_cwd()) ).replace('/mnt/c','c:')
+    print("file://" + h_path + "/mlruns")
+    #print("file://" + hydra.utils.get_original_cwd() + "/mlruns")
 
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
