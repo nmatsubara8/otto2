@@ -1,5 +1,5 @@
-import sys
-sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+#import sys
+#ys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
 
 from utils import Feature, generate_features, create_memo
 from src.preprocess import base_data
