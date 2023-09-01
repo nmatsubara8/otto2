@@ -121,6 +121,8 @@ def run(cfg):
     print("xxxxxxxxxxxxxxxxxxx")
     file_path = cwd/f"outputs/{rand}.csv"
     print("xxxxxxxxxxxxxxxxxxx")
+    print(file_path)
+    print("xxxxxxxxxxxxxxxxxxx")
     print("これはOK？",os.path.exists (file_path))
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
