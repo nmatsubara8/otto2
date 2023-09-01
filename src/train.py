@@ -94,7 +94,7 @@ def run(cfg):
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
                 #early_stopping_rounds=100,
-                verbose_eval=500,
+                #verbose_eval=500,
 
             )
 
