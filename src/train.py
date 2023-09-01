@@ -114,18 +114,19 @@ def run(cfg):
             )
     #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     #ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
+    print("SSはOK？",os.path.exists (cwd/ "../data/sampleSubmission.csv"))
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
     print("ここまでOK")
     file_path = cwd / f"../outputs/{rand}.csv"
-    print("これはOK？",os.path.exists (file_path))
+    #print("これはOK？",os.path.exists (file_path))
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
     #print('何用のパス３：',file_path)
     ss.to_csv(file_path, index=False)
     mlflow.log_artifact(file_path)
     print("ここまで来た")
-    os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
+    os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
     print("これも通過した")
 
 # @git_commits(rand)
