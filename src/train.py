@@ -93,7 +93,7 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                early_stopping_rounds=100,
+                #early_stopping_rounds=100,
                 verbose_eval=500,
 
             )
