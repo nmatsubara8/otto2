@@ -116,7 +116,9 @@ def run(cfg):
     #ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
+    print("ここまでOK")
     file_path = cwd /  f"/..outputs/{rand}.csv"
+    print("これはOK？")
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
     print('何用のパス３：',file_path)
