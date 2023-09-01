@@ -117,17 +117,12 @@ def run(cfg):
     print("SSはOK？",os.path.exists (cwd/ "../data/sampleSubmission.csv"))
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
-    print("SS",ss)
-    print("xxxxxxxxxxxxxxxxxxx")
-    file_path = cwd/f"outputs/{rand}.csv"
-    print("xxxxxxxxxxxxxxxxxxx")
-    print(file_path)
-    print("xxxxxxxxxxxxxxxxxxx")
-    print("これはOK？",os.path.exists (file_path))
-    #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
-    #print('何用のパス３：',file_path)
+    file_path = cwd/f"outputs/{rand}.csv"
+
+    print(file_path)
     ss.to_csv(file_path, index=False)
+    print("これはOK？",os.path.exists (file_path))
     mlflow.log_artifact(file_path)
     print("ここまで来た")
     os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
