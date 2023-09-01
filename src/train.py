@@ -121,11 +121,12 @@ def run(cfg):
     print("これはOK？")
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
-    print('何用のパス３：',file_path)
+    #print('何用のパス３：',file_path)
     ss.to_csv(file_path, index=False)
     mlflow.log_artifact(file_path)
+    print("ここまで来た")
     os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
-
+    print("これも通過した")
 
 # @git_commits(rand)
 #@hydra.main(config_name="../config/config.yaml")
