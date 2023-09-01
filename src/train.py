@@ -25,31 +25,32 @@ rand = np.random.randint(0, 1000000)
 
 
 def save_log(score_dict):
+    print("Save_Log1:",score_dict)
     mlflow.log_metrics(score_dict)
-    print("SL1:",os.getcwd())
     mlflow.log_artifact(".hydra/config.yaml")
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
+    #print("Save_Log2:",os.path.basename(__file__))
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
 
 
 @git_commits(rand)
 def run(cfg):
-   #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
+
     cwd = Path(hydra.utils.get_original_cwd())
-    #print("GT1:",os.getcwd())
+    print("Run直後:",cwd)
     #上記はsrcディレクトリー
-    #print("CWD1:",cwd)
+
 
     if cfg.base.optuna:
         import optuna.integration.lightgbm as lgb
     else:
         import lightgbm as lgb
 
-    #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
-    #print("GT2:",os.getcwd())
+
     data = [pd.read_pickle(str(cwd.parent)+ f"/features/{f}.pkl") for f in cfg.features]
+    #print("cfg.features:",cfg.features)
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])
@@ -63,10 +64,11 @@ def run(cfg):
     pred = np.zeros((test.shape[0], cfg.parameters.num_class))
     score = 0
     print("datetime folder:",os.getcwd())
+
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
-    h_path = (str(hydra.utils.get_original_cwd()) ).replace('/mnt/c','c:')
-    print("file://" + h_path + "/mlruns")
-    #print("file://" + hydra.utils.get_original_cwd() + "/mlruns")
+    #h_path = (str(hydra.utils.get_original_cwd()) ).replace('/mnt/c','c:')
+    print("file://" + hydra.utils.get_original_cwd()+ "/mlruns")
+
     print("datetime folder:",os.getcwd())
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
@@ -93,9 +95,8 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                #early_stopping_rounds=100,
-                #verbose_eval=500,
-
+                verbose_eval=500,
+                early_stopping_rounds=100,
             )
 
             y_pred = estimator.predict(test)
@@ -112,9 +113,10 @@ def run(cfg):
                 }
             )
     #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
+    #ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
+    ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
-    file_path = str(cwd.parent) + f"/outputs/{rand}.csv"
+    file_path = cwd /  f"/..outputs/{rand}.csv"
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
     print('何用のパス３：',file_path)
