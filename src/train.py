@@ -118,7 +118,7 @@ def run(cfg):
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
     print("SS",ss)
-    file_path = cwd / f"../outputs/{rand}.csv"
+    file_path = cwd/f"outputs/{rand}.csv"
     print("これはOK？",os.path.exists (file_path))
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
