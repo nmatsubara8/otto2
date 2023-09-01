@@ -135,6 +135,7 @@ def git_commits(rand):
 
         # リポジトリをきめる（今回だとotto2）
         repo = git.Repo(str(Path(os.getcwd()).parents[0]))
+        print("Git_Repo:",str(Path(os.getcwd()).parents[0]))
         repo.git.diff("HEAD")
         repo.git.add(".")
         # commit
@@ -164,17 +165,17 @@ def kaggle_wrapper(rand, cwd, cfg):
 
     return func_decorator
 
-def kaggle_wrapper(func):
-     def wrapper(*args, **kwargs):
-         func(*args, **kwargs)
-         rand = args[0]
-         cwd = args[1]
-         cfg = args[2]
-         add_experiment_name(rand=rand)
-         add_datasets(rand)
-         add_notebooks(rand, cwd, cfg)
+#def kaggle_wrapper(func):
+#     def wrapper(*args, **kwargs):
+#         func(*args, **kwargs)
+#         rand = args[0]
+#         cwd = args[1]
+#         cfg = args[2]
+#         add_experiment_name(rand=rand)
+#         add_datasets(rand)
+#         add_notebooks(rand, cwd, cfg)
 
-     return wrapper
+#     return wrapper
 
 
 def add_datasets(rand):
