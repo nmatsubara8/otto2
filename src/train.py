@@ -15,12 +15,12 @@ import mlflow
 import mlflow.lightgbm
 
 #import sys
-#ys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
+#sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
 #sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
 #sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
 
 from utils import git_commits
-print("Tr1:",os.getcwd())
+#print("Tr1:",os.getcwd())
 rand = np.random.randint(0, 1000000)
 
 
@@ -38,7 +38,7 @@ def save_log(score_dict):
 def run(cfg):
    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     cwd = Path(hydra.utils.get_original_cwd())
-    print("GT1:",os.getcwd())
+    #print("GT1:",os.getcwd())
     #上記はsrcディレクトリー
     #print("CWD1:",cwd)
 
@@ -48,7 +48,7 @@ def run(cfg):
         import lightgbm as lgb
 
     #data = [pd.read_pickle(f"features/{f}.pkl") for f in cfg.features]
-    print("GT2:",os.getcwd())
+    #print("GT2:",os.getcwd())
     data = [pd.read_pickle(str(cwd.parent)+ f"/features/{f}.pkl") for f in cfg.features]
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
@@ -62,12 +62,12 @@ def run(cfg):
 
     pred = np.zeros((test.shape[0], cfg.parameters.num_class))
     score = 0
-    print("DD1:",os.getcwd())
+    print("datetime folder:",os.getcwd())
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
     h_path = (str(hydra.utils.get_original_cwd()) ).replace('/mnt/c','c:')
     print("file://" + h_path + "/mlruns")
     #print("file://" + hydra.utils.get_original_cwd() + "/mlruns")
-    print("DD2:",os.getcwd())
+    print("datetime folder:",os.getcwd())
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
     use_cols = pd.Series(train.columns)
@@ -117,7 +117,7 @@ def run(cfg):
     file_path = str(cwd.parent) + f"/outputs/{rand}.csv"
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
-    print('DD3:',file_path)
+    print('何用のパス３：',file_path)
     ss.to_csv(file_path, index=False)
     mlflow.log_artifact(file_path)
     os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
