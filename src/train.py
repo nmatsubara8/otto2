@@ -118,7 +118,7 @@ def run(cfg):
     ss.iloc[:, 1:] = pred
     print("ここまでOK")
     file_path = cwd / f"../outputs/{rand}.csv"
-    print("これはOK？",file_path)
+    print("これはOK？",os.path.exists (file_path))
     #file_path = (str(cwd) + f"/outputs/{rand}.csv").replace('/mnt/c','c:')
 
     #print('何用のパス３：',file_path)
