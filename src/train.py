@@ -125,7 +125,7 @@ def run(cfg):
     print("これはOK？",os.path.exists (file_path))
     mlflow.log_artifact(file_path)
     print("ここまで来た")
-    os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
+    #os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
     print("これも通過した")
 
 # @git_commits(rand)
