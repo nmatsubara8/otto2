@@ -113,7 +113,7 @@ def run(cfg):
 
     mlflow.log_artifact(file_path)
 
-    os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
+    os.system(f"kaggle competitions submit -c Otto Group Product Classification Challenge -f {file_path} -m 'none'")
 
 
 # @git_commits(rand)
