@@ -2,7 +2,7 @@ base:
   # 存在する特徴量だとしても上書きするか
   overwrite: true
   seed: 1234
-  n_folds: 4
+  n_folds: 2
   # optunaを使うかどうか
   optuna: false
   num_boost_round: 1500
