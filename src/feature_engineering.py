@@ -1,6 +1,3 @@
-#import sys
-#ys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
-
 from utils import Feature, generate_features, create_memo
 from preprocess import base_data
 # from src.preprocess import base_data
@@ -8,29 +5,34 @@ import os
 import pandas as pd
 import hydra
 from sklearn.decomposition import PCA
-print("FE1:",os.getcwd())
+
 # 生成された特徴量を保存するパス
 Feature.dir = "features"
 # trainとtestを結合して基本的な前処理を行ったデータを呼ぶ
 data = base_data()
 
-
+#trainとtestを結合してid欄を削除する。Base_dataについてのメモを残す
 class Base_data(Feature):
     def create_features(self):
         self.data = data.drop(columns=["id"])
         create_memo("base_data", "初期")
 
 
-class Pca(Feature):
+class Pca(Feature):#特徴量Pcaを作成する。
     def create_features(self):
         n = 20
+        #PCAオブジェクトを作成
         pca = PCA(n_components=n)
+
+        #PCAモデルをデータに適合させている。
+        #dataという名前のデータフレームから、"train"、"target"、"id" の3つの列を削除した後、PCAを適用
         pca.fit(
             data.drop(
                 columns=["train", "target", "id"]
             )
         )
-        # カラム名
+        # この行では、新しいデータフレームのカラム名を生成しています。
+        # n_name リストには、"pca_0" から "pca_19" までのカラム名が格納されます
         n_name = [f"pca_{i}" for i in range(n)]
         df_pca = pd.DataFrame(
             pca.transform(data.drop(
@@ -38,6 +40,7 @@ class Pca(Feature):
             )),
             columns=n_name
         )
+        #PCAを適用したデータが self.data に格納される
         self.data = df_pca.copy()
         create_memo("pca", "pcaかけただけ")
 

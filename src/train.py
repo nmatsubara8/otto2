@@ -14,26 +14,18 @@ import lightgbm
 import mlflow
 import mlflow.lightgbm
 
-#import sys
-#sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2')
-#sys.path.append('/home/nori/anaconda3/envs/py38/lib/python3.8')
-#sys.path.append('/mnt/c/Users/admin/OneDrive/ドキュメント/GitHub/otto2/src/LIGHTGBM')
-
 from utils import git_commits
-#print("Tr1:",os.getcwd())
+
 rand = np.random.randint(0, 1000000)
 
-
 def save_log(score_dict):
-    print("Save_Log1:",score_dict)
     mlflow.log_metrics(score_dict)
     mlflow.log_artifact(".hydra/config.yaml")
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
-    #print("Save_Log2:",os.path.basename(__file__))
+    print("log_file:::::",f"{os.path.basename(__file__)}")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
-
 
 @git_commits(rand)
 def run(cfg):
