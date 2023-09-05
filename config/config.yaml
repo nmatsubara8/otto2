@@ -21,6 +21,7 @@ parameters:
   num_leaves: 32
   early_stopping_rounds: 20
   verbose: -1
+  verbose_eval: 500
   force_row_wise: true
 
 # trainingに使用する特徴量
