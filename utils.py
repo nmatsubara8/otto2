@@ -122,7 +122,7 @@ def add_experiment_name(rand):
     with open(".hydra/config.yaml", "r+") as f:
         data = yaml.load(f)
 
-        data["experiment_name"] = str(rand)
+        data["experiment_name"] = rand
 
         # f.write(yaml.dump(data))
     with open(".hydra/config.yaml", "w") as f:
