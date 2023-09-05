@@ -41,7 +41,7 @@ def run(cfg):
         import lightgbm as lgb
 
 
-    data = [pd.read_pickle(cwd/+f"../features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(cwd/f"../features/{f}.pkl") for f in cfg.features]
 
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
@@ -127,5 +127,4 @@ def main(cfg):
 
 
 if __name__ == "__main__":
-    HYDRA_FULL_ERROR : 1
     main()
