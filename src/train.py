@@ -31,7 +31,7 @@ def save_log(score_dict):
 def run(cfg):
 
     cwd = Path(hydra.utils.get_original_cwd())
-    print("Run直後:",cwd)
+    #print("Run直後:",cwd)
     #上記はsrcディレクトリー
 
 
@@ -110,13 +110,13 @@ def run(cfg):
 
     file_path = cwd/f"../outputs/{rand}.csv"
 
-    print(file_path)
+    print("file_path:",file_path)
     ss.to_csv(file_path, index=False)
-    print("これはOK？",os.path.exists (file_path))
+    #print("これはOK？",os.path.exists (file_path))
     mlflow.log_artifact(file_path)
-    print("ここまで来た")
+    #print("ここまで来た")
     #os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
-    print("これも通過した")
+    #print("これも通過した")
 
 # @git_commits(rand)
 #@hydra.main(config_name="../config/config.yaml")
