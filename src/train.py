@@ -24,10 +24,7 @@ def save_log(score_dict):
     mlflow.log_artifact(".hydra/config.yaml")
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
-    #print("log_file:::::",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
-
-
     mlflow.log_artifact("features.csv")
 
 @git_commits(rand)
@@ -44,8 +41,8 @@ def run(cfg):
         import lightgbm as lgb
 
 
-    data = [pd.read_pickle(str(cwd.parent)+ f"/features/{f}.pkl") for f in cfg.features]
-    #print("cfg.features:",cfg.features)
+    data = [pd.read_pickle(cwd /+ f"../features/{f}.pkl") for f in cfg.features]
+
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
     train = data[data["train"]].drop(columns=["train"])
