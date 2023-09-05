@@ -25,7 +25,6 @@ def save_log(score_dict):
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
-    print("Basename:",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
 
 @git_commits(rand)
@@ -58,9 +57,6 @@ def run(cfg):
     score = 0
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
 
-    #print("file://" + hydra.utils.get_original_cwd()+ "/mlruns")
-
-    #print("datetime folder:",os.getcwd())
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
     use_cols = pd.Series(train.columns)
