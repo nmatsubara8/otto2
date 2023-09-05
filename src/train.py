@@ -102,26 +102,22 @@ def run(cfg):
                     "score": score
                 }
             )
-    #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
-    #ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
-    #print("SSはOK？",os.path.exists (cwd/ "../data/sampleSubmission.csv"))
+
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
 
-    file_path = cwd/f"../outputs/{rand}.csv"
+    file_path = cwd / f"../outputs/{rand}.csv"
 
     print("file_path:",file_path)
     ss.to_csv(file_path, index=False)
-    #print("これはOK？",os.path.exists (file_path))
+
     mlflow.log_artifact(file_path)
-    #print("ここまで来た")
-    #os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
-    #print("これも通過した")
+
+    os.system(f"kaggle competitions submit -c otto-group -product-classification-challenge -f {file_path} -m 'none'")
+
 
 # @git_commits(rand)
-#@hydra.main(config_name="../config/config.yaml")
 @hydra.main(config_path="../config", config_name="config")
-
 def main(cfg):
     run(cfg)
 
