@@ -57,9 +57,9 @@ def run(cfg):
     score = 0
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
 
-    print("file://" + hydra.utils.get_original_cwd()+ "/mlruns")
+    #print("file://" + hydra.utils.get_original_cwd()+ "/mlruns")
 
-    print("datetime folder:",os.getcwd())
+    #print("datetime folder:",os.getcwd())
     mlflow.set_tracking_uri('file://' + hydra.utils.get_original_cwd() + '/mlruns')
 
     use_cols = pd.Series(train.columns)
