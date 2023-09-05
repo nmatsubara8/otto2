@@ -150,7 +150,7 @@ def git_commits(rand):
 
     return func_decorator
 
-'''
+
 def kaggle_wrapper(rand, cwd, cfg):
 
     def func_decorator(my_func):
@@ -211,7 +211,7 @@ def add_notebooks(rand, cwd, cfg):
         "title": f"{rand} inference",
         "language": "python",
         "kernel_type": "script",
-        "code_file": str(cwd / "inference.py"),
+        "code_file": cwd / "inference.py",
         "is_private": "true",
         "enable_gpu": cfg.kaggle.enable_gpu,
         "dataset_sources": [
@@ -223,4 +223,3 @@ def add_notebooks(rand, cwd, cfg):
     with open("kernel-metadata.json", "w") as f:
         json.dump(data_json, f)
     os.system("kaggle kernels push -p .")
-'''
