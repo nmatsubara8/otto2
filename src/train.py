@@ -127,4 +127,5 @@ def main(cfg):
 
 
 if __name__ == "__main__":
+    HYDRA_FULL_ERROR : 1
     main()
