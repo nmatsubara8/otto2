@@ -85,8 +85,8 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                #verbose_eval=500,
-                #early_stopping_rounds=100,
+                verbose_eval=500,
+                early_stopping_rounds=100,
             )
 
             y_pred = estimator.predict(test)
@@ -116,7 +116,7 @@ def run(cfg):
     os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
 
 # @git_commits(rand)
-@hydra.main(config_name="config")
+@hydra.main(config_path="../config", config_name="config")
 def main(cfg):
     run(cfg)
 
