@@ -103,10 +103,10 @@ def run(cfg):
                 }
             )
 
-    ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
+    ss = pd.read_csv(cwd/ "..src/data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
 
-    file_path = cwd / f"../outputs/{rand}.csv"
+    file_path = cwd / f"..src/outputs/{rand}.csv"
 
     print("file_path:",file_path)
     ss.to_csv(file_path, index=False)
