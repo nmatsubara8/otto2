@@ -1,0 +1,3 @@
+model:
+  max_depth: 10
+  learning_rate: 0.02
