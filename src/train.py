@@ -27,12 +27,8 @@ def save_log(score_dict):
     #print("log_file:::::",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
 
-    use_cols = pd.Series(train.columns)
-    use_cols.to_csv("features.csv", index=False, header=False)
+
     mlflow.log_artifact("features.csv")
-
-
-
 
 @git_commits(rand)
 def run(cfg):
