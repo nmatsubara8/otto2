@@ -116,7 +116,7 @@ def run(cfg):
     os.system(f"kaggle competitions submit -c otto-group-product-classification-challenge -f {file_path} -m 'none'")
 
 # @git_commits(rand)
-@hydra.main(config_path="../config", config_name="config")
+@hydra.main(config_name="config")
 def main(cfg):
     run(cfg)
 
