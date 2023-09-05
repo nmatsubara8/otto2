@@ -23,7 +23,7 @@ def save_log(score_dict):
     mlflow.log_artifact(".hydra/config.yaml")
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
-    print("log_file:::::",f"{os.path.basename(__file__)}")
+    print("log_file:::::",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
 
