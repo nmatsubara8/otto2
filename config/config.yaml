@@ -19,6 +19,7 @@ parameters:
   bagging_fraction: 0.8
   metric: "multi_logloss"
   num_leaves: 32
+  early_stopping_rounds: 20
   verbose: -1
   force_row_wise: true
 
