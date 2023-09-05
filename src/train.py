@@ -18,14 +18,21 @@ from utils import git_commits
 
 rand = np.random.randint(0, 1000000)
 
+
 def save_log(score_dict):
     mlflow.log_metrics(score_dict)
     mlflow.log_artifact(".hydra/config.yaml")
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
-    print("log_file:::::",f"{os.path.basename(__file__)[:-3]}.log")
+    #print("log_file:::::",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
+
+    use_cols = pd.Series(train.columns)
+    use_cols.to_csv("features.csv", index=False, header=False)
     mlflow.log_artifact("features.csv")
+
+
+
 
 @git_commits(rand)
 def run(cfg):
@@ -55,10 +62,8 @@ def run(cfg):
 
     pred = np.zeros((test.shape[0], cfg.parameters.num_class))
     score = 0
-    print("datetime folder:",os.getcwd())
-
     experiment_name = f"{'optuna_' if cfg.base.optuna else ''}{rand}"
-    #h_path = (str(hydra.utils.get_original_cwd()) ).replace('/mnt/c','c:')
+
     print("file://" + hydra.utils.get_original_cwd()+ "/mlruns")
 
     print("datetime folder:",os.getcwd())
@@ -106,11 +111,11 @@ def run(cfg):
             )
     #cwd = os.path.dirname(Path(hydra.utils.get_original_cwd()))
     #ss = pd.read_csv(str(cwd.parent) +"/data/sampleSubmission.csv")
-    print("SSはOK？",os.path.exists (cwd/ "../data/sampleSubmission.csv"))
+    #print("SSはOK？",os.path.exists (cwd/ "../data/sampleSubmission.csv"))
     ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
 
-    file_path = cwd/f"outputs/{rand}.csv"
+    file_path = cwd/f"../outputs/{rand}.csv"
 
     print(file_path)
     ss.to_csv(file_path, index=False)
