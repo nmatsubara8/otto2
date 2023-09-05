@@ -25,6 +25,7 @@ def save_log(score_dict):
     mlflow.log_artifact(".hydra/hydra.yaml")
     mlflow.log_artifact(".hydra/overrides.yaml")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
+    print("Basename:",f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
 
 @git_commits(rand)
@@ -85,8 +86,8 @@ def run(cfg):
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
                 valid_sets=[d_train, d_valid],
-                verbose_eval=500,
-                early_stopping_rounds=100,
+                #verbose_eval=500,
+                #early_stopping_rounds=100,
             )
 
             y_pred = estimator.predict(test)
