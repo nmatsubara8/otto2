@@ -134,8 +134,8 @@ def git_commits(rand):
         print("experiment_name: ", rand)
 
         # リポジトリをきめる（今回だとotto2）
-        repo = git.Repo(str(Path(os.getcwd()).parents[0]))
-        print("Git_Repo:",str(Path(os.getcwd()).parents[0]))
+        repo = git.Repo(Path(os.getcwd()).parents[0])
+        print("Git_Repo:",Path(os.getcwd()).parents[0])
         repo.git.diff("HEAD")
         repo.git.add(".")
         # commit
