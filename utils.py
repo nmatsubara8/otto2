@@ -135,7 +135,7 @@ def git_commits(rand):
 
         # リポジトリをきめる（今回だとotto2）
 
-        repo = git.Repo(Path(os.getcwd()))
+        repo = git.Repo(str(Path(os.getcwd())))
 
         repo.git.diff("HEAD")
         repo.git.add(".")
