@@ -8,6 +8,10 @@ import hydra
 import gc
 import os
 
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+
 from pathlib import Path
 import lightgbm
 

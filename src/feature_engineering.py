@@ -1,10 +1,15 @@
-from utils import Feature, generate_features, create_memo
-from preprocess import base_data
-# from src.preprocess import base_data
 import os
 import pandas as pd
 import hydra
 from sklearn.decomposition import PCA
+
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from utils import Feature, generate_features, create_memo
+from preprocess import base_data
+# from src.preprocess import base_data
+
 
 # 生成された特徴量を保存するパス
 Feature.dir = "features"
