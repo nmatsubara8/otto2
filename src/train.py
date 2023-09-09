@@ -46,7 +46,7 @@ def run(cfg):
         import lightgbm as lgb
 
 
-    data = [pd.read_pickle(cwd / f"features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(os.path.abspath(cwd / f"../features/{f}.pkl")) for f in cfg.features]
 
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
@@ -105,7 +105,7 @@ def run(cfg):
                 }
             )
 
-    ss = pd.read_csv(cwd/ "../data/sampleSubmission.csv")
+    ss = pd.read_csv(os.path.abspath(cwd/ "../data/sampleSubmission.csv"))
     ss.iloc[:, 1:] = pred
 
     file_path = cwd / f"../outputs/{rand}.csv"
