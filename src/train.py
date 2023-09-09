@@ -35,6 +35,7 @@ def save_log(score_dict):
 def run(cfg):
 
     cwd = Path(hydra.utils.get_original_cwd())
+    print('CWD:',cwd)
     #print("Run直後:",cwd)
     #上記はsrcディレクトリー
 
