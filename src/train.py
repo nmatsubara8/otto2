@@ -35,9 +35,9 @@ def save_log(score_dict):
 def run(cfg):
 
     cwd = Path(hydra.utils.get_original_cwd())
-    print('CWD:',cwd)
-    #print("Run直後:",cwd)
-    #上記はsrcディレクトリー
+
+    print("Run直後:",cwd)
+    #上記はotto2ディレクトリー
 
 
     if cfg.base.optuna:
@@ -46,7 +46,7 @@ def run(cfg):
         import lightgbm as lgb
 
 
-    data = [pd.read_pickle(cwd/f"../features/{f}.pkl") for f in cfg.features]
+    data = [pd.read_pickle(cwd / f"../features/{f}.pkl") for f in cfg.features]
 
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
