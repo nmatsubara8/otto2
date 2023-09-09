@@ -44,10 +44,9 @@ def run(cfg):
         import optuna.integration.lightgbm as lgb
     else:
         import lightgbm as lgb
-    print('CWD:',cwd)
-    print('abs',os.path.abspath(cwd))
 
-    data = [pd.read_pickle(cwd / f"../features/{f}.pkl") for f in cfg.features]
+
+    data = [pd.read_pickle(os.path.abspath(cwd) / f"../features/{f}.pkl") for f in cfg.features]
 
     data = pd.concat(data, axis=1)
     target = data.loc[data["train"], "target"].astype(int)
