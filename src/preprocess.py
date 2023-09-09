@@ -25,7 +25,7 @@ def preprocess(train, test):
 
 
 def base_data():
-    train = pd.read_csv("/home/nori/prj/otto2/data/train.csv")
-    test = pd.read_csv("/home/nori/prj/otto2/data/test.csv")
+    train = pd.read_csv("/home/nori/src/otto2/data/train.csv")
+    test = pd.read_csv("/home/nori/src/otto2/data/test.csv")
     data = preprocess(train, test)
     return data

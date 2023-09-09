@@ -105,7 +105,7 @@ def run(cfg):
 
     file_path = cwd / f"../outputs/{rand}.csv"
 
-    print("file_path:",file_path)
+    #print("file_path:",file_path)
     ss.to_csv(file_path, index=False)
 
     mlflow.log_artifact(file_path)
