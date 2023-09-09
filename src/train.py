@@ -44,7 +44,8 @@ def run(cfg):
         import optuna.integration.lightgbm as lgb
     else:
         import lightgbm as lgb
-
+    print('CWD:',cwd)
+    print('abs',os.path.abspath(cwd))
 
     data = [pd.read_pickle(cwd / f"../features/{f}.pkl") for f in cfg.features]
 
