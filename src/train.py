@@ -103,7 +103,7 @@ def run(cfg):
                     "score": score
                 }
             )
-
+    print('CWD***',cwd)
     ss = pd.read_csv(cwd/ "data/sampleSubmission.csv")
     ss.iloc[:, 1:] = pred
 
