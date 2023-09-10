@@ -1,0 +1,73 @@
+artifact_path: model
+flavors:
+  lightgbm:
+    code: null
+    data: model.lgb
+    lgb_version: 4.0.0
+    model_class: lightgbm.basic.Booster
+  python_function:
+    data: model.lgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.8.17
+mlflow_version: 2.6.0
+model_uuid: d00ad02b5d8649e28f64239dbb9d3012
+run_id: dd968de142814eef83f3a704caa4b3f6
+signature:
+  inputs: '[{"type": "long", "name": "feat_1"}, {"type": "long", "name": "feat_2"},
+    {"type": "long", "name": "feat_3"}, {"type": "long", "name": "feat_4"}, {"type":
+    "long", "name": "feat_5"}, {"type": "long", "name": "feat_6"}, {"type": "long",
+    "name": "feat_7"}, {"type": "long", "name": "feat_8"}, {"type": "long", "name":
+    "feat_9"}, {"type": "long", "name": "feat_10"}, {"type": "long", "name": "feat_11"},
+    {"type": "long", "name": "feat_12"}, {"type": "long", "name": "feat_13"}, {"type":
+    "long", "name": "feat_14"}, {"type": "long", "name": "feat_15"}, {"type": "long",
+    "name": "feat_16"}, {"type": "long", "name": "feat_17"}, {"type": "long", "name":
+    "feat_18"}, {"type": "long", "name": "feat_19"}, {"type": "long", "name": "feat_20"},
+    {"type": "long", "name": "feat_21"}, {"type": "long", "name": "feat_22"}, {"type":
+    "long", "name": "feat_23"}, {"type": "long", "name": "feat_24"}, {"type": "long",
+    "name": "feat_25"}, {"type": "long", "name": "feat_26"}, {"type": "long", "name":
+    "feat_27"}, {"type": "long", "name": "feat_28"}, {"type": "long", "name": "feat_29"},
+    {"type": "long", "name": "feat_30"}, {"type": "long", "name": "feat_31"}, {"type":
+    "long", "name": "feat_32"}, {"type": "long", "name": "feat_33"}, {"type": "long",
+    "name": "feat_34"}, {"type": "long", "name": "feat_35"}, {"type": "long", "name":
+    "feat_36"}, {"type": "long", "name": "feat_37"}, {"type": "long", "name": "feat_38"},
+    {"type": "long", "name": "feat_39"}, {"type": "long", "name": "feat_40"}, {"type":
+    "long", "name": "feat_41"}, {"type": "long", "name": "feat_42"}, {"type": "long",
+    "name": "feat_43"}, {"type": "long", "name": "feat_44"}, {"type": "long", "name":
+    "feat_45"}, {"type": "long", "name": "feat_46"}, {"type": "long", "name": "feat_47"},
+    {"type": "long", "name": "feat_48"}, {"type": "long", "name": "feat_49"}, {"type":
+    "long", "name": "feat_50"}, {"type": "long", "name": "feat_51"}, {"type": "long",
+    "name": "feat_52"}, {"type": "long", "name": "feat_53"}, {"type": "long", "name":
+    "feat_54"}, {"type": "long", "name": "feat_55"}, {"type": "long", "name": "feat_56"},
+    {"type": "long", "name": "feat_57"}, {"type": "long", "name": "feat_58"}, {"type":
+    "long", "name": "feat_59"}, {"type": "long", "name": "feat_60"}, {"type": "long",
+    "name": "feat_61"}, {"type": "long", "name": "feat_62"}, {"type": "long", "name":
+    "feat_63"}, {"type": "long", "name": "feat_64"}, {"type": "long", "name": "feat_65"},
+    {"type": "long", "name": "feat_66"}, {"type": "long", "name": "feat_67"}, {"type":
+    "long", "name": "feat_68"}, {"type": "long", "name": "feat_69"}, {"type": "long",
+    "name": "feat_70"}, {"type": "long", "name": "feat_71"}, {"type": "long", "name":
+    "feat_72"}, {"type": "long", "name": "feat_73"}, {"type": "long", "name": "feat_74"},
+    {"type": "long", "name": "feat_75"}, {"type": "long", "name": "feat_76"}, {"type":
+    "long", "name": "feat_77"}, {"type": "long", "name": "feat_78"}, {"type": "long",
+    "name": "feat_79"}, {"type": "long", "name": "feat_80"}, {"type": "long", "name":
+    "feat_81"}, {"type": "long", "name": "feat_82"}, {"type": "long", "name": "feat_83"},
+    {"type": "long", "name": "feat_84"}, {"type": "long", "name": "feat_85"}, {"type":
+    "long", "name": "feat_86"}, {"type": "long", "name": "feat_87"}, {"type": "long",
+    "name": "feat_88"}, {"type": "long", "name": "feat_89"}, {"type": "long", "name":
+    "feat_90"}, {"type": "long", "name": "feat_91"}, {"type": "long", "name": "feat_92"},
+    {"type": "long", "name": "feat_93"}, {"type": "double", "name": "pca_0"}, {"type":
+    "double", "name": "pca_1"}, {"type": "double", "name": "pca_2"}, {"type": "double",
+    "name": "pca_3"}, {"type": "double", "name": "pca_4"}, {"type": "double", "name":
+    "pca_5"}, {"type": "double", "name": "pca_6"}, {"type": "double", "name": "pca_7"},
+    {"type": "double", "name": "pca_8"}, {"type": "double", "name": "pca_9"}, {"type":
+    "double", "name": "pca_10"}, {"type": "double", "name": "pca_11"}, {"type": "double",
+    "name": "pca_12"}, {"type": "double", "name": "pca_13"}, {"type": "double", "name":
+    "pca_14"}, {"type": "double", "name": "pca_15"}, {"type": "double", "name": "pca_16"},
+    {"type": "double", "name": "pca_17"}, {"type": "double", "name": "pca_18"}, {"type":
+    "double", "name": "pca_19"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1,
+    9]}}]'
+  params: null
+utc_time_created: '2023-09-10 14:38:13.670154'
