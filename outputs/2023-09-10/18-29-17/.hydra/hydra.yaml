@@ -140,7 +140,7 @@ hydra:
     - path: ''
       schema: structured
       provider: schema
-    output_dir: /home/nori/src/otto2/outputs/2023-09-10/18-22-12
+    output_dir: /home/nori/src/otto2/outputs/2023-09-10/18-29-17
     choices:
       model: lightgbm
       hydra/env: default
