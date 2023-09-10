@@ -36,7 +36,7 @@ def run(cfg):
 
     cwd = Path(hydra.utils.get_original_cwd())
 
-    print("Run直後:",cwd)
+    #print("Run直後:",cwd)
     #上記はotto2ディレクトリー
 
 
@@ -103,9 +103,9 @@ def run(cfg):
                     "score": score
                 }
             )
-    print('CWD***',cwd)
+    #print('CWD***',cwd)
     #cwdはotto2
-    ss = pd.read_csv(Path(cwd / "/data/sampleSubmission.csv"))
+    ss = pd.read_csv((cwd / "/data/sampleSubmission.csv"))
     ss.iloc[:, 1:] = pred
 
     file_path = cwd / f"outputs/{rand}.csv"
