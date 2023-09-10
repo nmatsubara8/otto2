@@ -86,9 +86,8 @@ def run(cfg):
                 params=dict(cfg.parameters),
                 train_set=d_train,
                 num_boost_round=cfg.base.num_boost_round,
-                valid_sets=[d_train, d_valid],
-                #verbose_eval=500,
-                #early_stopping_rounds=100,
+                valid_sets=[d_train, d_valid]
+
             )
 
             y_pred = estimator.predict(test)

@@ -23,7 +23,7 @@ parameters:
   metric: "multi_logloss"
   num_leaves: 32
   early_stopping_rounds: 20
-  verbose: -1
+  #verbose: -1
   verbose_eval: 500
   force_row_wise: true
 
