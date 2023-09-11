@@ -105,7 +105,8 @@ def run(cfg):
             )
     #print('CWD***',cwd)
     #cwdはotto2
-    ss = pd.read_csv(cwd / "./data/sampleSubmission.csv")
+    ss_path=pathlib.Path(cwd / "../data/sampleSubmission.csv").resolve()
+    ss = pd.read_csv(ss_path)
     ss.iloc[:, 1:] = pred
 
     file_path = cwd / f"./outputs/{rand}.csv"
