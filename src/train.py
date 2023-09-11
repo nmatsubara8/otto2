@@ -105,7 +105,7 @@ def run(cfg):
             )
     #print('CWD***',cwd)
     #cwdはotto2
-    ss_path=pathlib.Path(cwd / "../data/sampleSubmission.csv").resolve()
+    ss_path = pathlib.Path(str(cwd)+"/../data/sampleSubmission.csv").resolve()
     ss = pd.read_csv(ss_path)
     ss.iloc[:, 1:] = pred
 

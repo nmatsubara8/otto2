@@ -1,0 +1,15 @@
+artifact_uri: file:///home/nori/src/otto2/mlruns/701676279316520011/bed03eff9e754165a36cb2d18696dfd0/artifacts
+end_time: 1694415914246
+entry_point_name: ''
+experiment_id: '701676279316520011'
+lifecycle_stage: active
+run_id: bed03eff9e754165a36cb2d18696dfd0
+run_name: '709435'
+run_uuid: bed03eff9e754165a36cb2d18696dfd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1694415902407
+status: 3
+tags: []
+user_id: nori
