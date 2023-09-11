@@ -1,0 +1,26 @@
+model:
+  model:
+    max_depth: 10
+    learning_rate: 0.01
+base:
+  overwrite: true
+  seed: 1234
+  n_folds: 4
+  optuna: false
+  num_boost_round: 100
+parameters:
+  objective: multiclass
+  num_class: 9
+  max_depth: 8
+  learning_rate: 0.01
+  feature_fraction: 0.8
+  bagging_freq: 1
+  bagging_fraction: 0.8
+  metric: multi_logloss
+  num_leaves: 32
+  early_stopping_rounds: 10
+  verbose_eval: 10
+  force_row_wise: true
+features:
+- base_data
+- pca
