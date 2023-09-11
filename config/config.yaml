@@ -5,7 +5,7 @@ base:
   n_folds: 4
   # optunaを使うかどうか
   optuna: false
-  num_boost_round: 100
+  num_boost_round: 1500
 
 defaults:
   - model: lightgbm
@@ -22,9 +22,9 @@ parameters:
   bagging_fraction: 0.8
   metric: "multi_logloss"
   num_leaves: 32
-  early_stopping_rounds: 10
+  early_stopping_rounds: 50
   #verbose: -1
-  verbose_eval: 10
+  verbose_eval: 500
   force_row_wise: true
 
 # trainingに使用する特徴量
