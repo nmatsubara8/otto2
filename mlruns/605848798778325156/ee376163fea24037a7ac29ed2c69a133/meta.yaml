@@ -1,0 +1,15 @@
+artifact_uri: file:///home/nori/src/otto2/mlruns/605848798778325156/ee376163fea24037a7ac29ed2c69a133/artifacts
+end_time: 1694417298594
+entry_point_name: ''
+experiment_id: '605848798778325156'
+lifecycle_stage: active
+run_id: ee376163fea24037a7ac29ed2c69a133
+run_name: resilient-cat-502
+run_uuid: ee376163fea24037a7ac29ed2c69a133
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1694417291807
+status: 3
+tags: []
+user_id: nori
