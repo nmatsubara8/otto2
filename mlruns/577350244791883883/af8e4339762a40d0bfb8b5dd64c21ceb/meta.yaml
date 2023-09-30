@@ -1,0 +1,15 @@
+artifact_uri: file:///home/nori/src/otto2/mlruns/577350244791883883/af8e4339762a40d0bfb8b5dd64c21ceb/artifacts
+end_time: 1696074873635
+entry_point_name: ''
+experiment_id: '577350244791883883'
+lifecycle_stage: active
+run_id: af8e4339762a40d0bfb8b5dd64c21ceb
+run_name: optuna_390975
+run_uuid: af8e4339762a40d0bfb8b5dd64c21ceb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1696074858657
+status: 4
+tags: []
+user_id: nori
