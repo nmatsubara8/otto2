@@ -29,3 +29,9 @@ def base_data():
     test = pd.read_csv("/home/nori/src/otto2/data/test.csv")
     data = preprocess(train, test)
     return data
+
+def base_data2():
+    data = pd.read_csv("/home/nori/src/otto2/data/1-09-1-20.csv")
+
+    #data = preprocess(train, test)
+    return data

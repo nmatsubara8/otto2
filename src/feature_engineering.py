@@ -19,9 +19,18 @@ data = base_data()
 #trainとtestを結合してid欄を削除する。Base_dataについてのメモを残す
 class Base_data(Feature):
     def create_features(self):
-        self.data = data.drop(columns=["id"])
+        self.data = data
         create_memo("base_data", "初期")
 
+class Unit_time(Feature):
+    def create_features(self):
+        self.data = data.iloc[:, 0]
+        create_memo("Unit_time", "UTのみ抽出")
+
+class Date_time(Feature):
+    def create_features(self):
+        self.data = data.iloc[:, 1]
+        create_memo("Date_time", "Datetimeのみ抽出")
 
 class Pca(Feature):#特徴量Pcaを作成する。
     def create_features(self):
