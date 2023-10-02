@@ -20,9 +20,6 @@ import mlflow.lightgbm
 
 from utils import git_commits
 
-rand = np.random.randint(0, 1000000)
-
-
 def save_log(score_dict):
     mlflow.log_metrics(score_dict)
     mlflow.log_artifact(".hydra/config.yaml")
@@ -30,6 +27,8 @@ def save_log(score_dict):
     mlflow.log_artifact(".hydra/overrides.yaml")
     mlflow.log_artifact(f"{os.path.basename(__file__)[:-3]}.log")
     mlflow.log_artifact("features.csv")
+
+rand = np.random.randint(0, 1000000)
 
 @git_commits(rand)
 def run(cfg):
