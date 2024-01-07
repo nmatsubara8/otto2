@@ -2,3 +2,23 @@
 /features/*.pkl
 /src/outputs/
 /src/mlruns/
+
+# すべての .exe ファイルを無視
+*.exe
+
+# すべての .bak 拡張子のファイルを無視
+*.bak
+
+# すべての .log 拡張子のファイルおよび.log.から始まるファイルを無視
+*.log*
+ 
+# すべての .cache 拡張子のファイルを無視
+*.cache
+
+# フォルダー名が node_modules/ のディレクトリを無視
+node_modules/
+
+# フォルダー名が build/ もしくは dist/ もしくは target/ のディレクトリを無視
+build/
+dist/
+target/
